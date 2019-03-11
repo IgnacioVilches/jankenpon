@@ -1,23 +1,22 @@
-$player_count = 0
-$computer_count = 0
+puts "\n\nJankempon\nAprieta r para Jan\nAprieta s para Ken\nAprieta p para Pon\n"
+cpu = "rsp"[rand(3)].chr
+jugador = $stdin.gets.chomp.downcase
 
-what_to_include = %w{r p s}
 
-paper = "p"
-rock = "r"
-scissors = "s"
+case [jugador, cpu]
 
-def computer_input
-  computer = rand(3)
-  if computer == 0
-    computer = "p"
-  elsif computer == 1
-    computer = "r"
-  else
-    computer = "s"
-  end
+when ['r','r'], ['s','p'], ['r','s']
+
+  puts "\n\nHas ganado!"
+
+when ['r','r'], ['s','s'], ['p','p']
+
+  puts "\n\nEMPATE!"
+
+else
+
+  puts "\n\nTu pierdes!"
+
+  puts "El cpu acaba de escoger: #{cpu.upcase}\n"
+
 end
-
-
-while true
-
